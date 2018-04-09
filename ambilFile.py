@@ -8,11 +8,11 @@ import requests
 
 ## INI UNTUK KIRIM FILE ##
 r = requests.post('http://127.0.0.1:5000/todo/lone/', 
-                  files={'file': open('asdad.jpg', 'rb')})
-
+                  files={'file': open('aaa.pdf', 'rb')})
+'''
 ## INI UNTUK AMBIL FILE ##
 r = requests.get('http://127.0.0.1:5000/uploads/dompo.jpg/12345')
 s = r.content
 fo = open('gaga.jpg','wb')
 fo.write(s)
-fo.close()
+fo.close()'''

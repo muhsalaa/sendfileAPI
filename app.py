@@ -5,7 +5,8 @@ from flask import Flask, jsonify, request,send_from_directory
 #import os
 UPLOAD_FOLDER = '/uploads/'
 app = Flask(__name__,static_folder='uploads')
-
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.run(threaded=True)
 tasks = [
     {
         'id': 1,
@@ -33,7 +34,7 @@ def get_task3():
         if file:
             filename = file.filename
             file.save('uploads/'+filename)    
-    return jsonify({'message':'send done'})
+            return jsonify({'message':'send done'})
 
 @app.route('/uploads/<path:filename>/<int:passs>', methods=['GET', 'POST'])
 def download(filename,passs):
