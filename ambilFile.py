@@ -11,8 +11,9 @@ r = requests.post('http://127.0.0.1:5000/todo/lone/',
                   files={'file': open('aaa.pdf', 'rb')})
 '''
 ## INI UNTUK AMBIL FILE ##
-r = requests.get('http://127.0.0.1:5000/uploads/asertipm.pdf/12345')
-s = r.content
-fo = open('gaga.pdf','wb')
-fo.write(s)
-fo.close()
+url='https://kirimincoba.herokuapp.com/uploads/aass.pdf/12345'
+res = requests.get(url,stream=True)
+fo = open('gagaso.pdf','wb')
+for chunk in res.iter_content(chunk_size=512):
+    if chunk:
+        fo.write(chunk)
