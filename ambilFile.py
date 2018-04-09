@@ -14,6 +14,6 @@ r = requests.post('http://127.0.0.1:5000/todo/lone/',
 url='https://kirimincoba.herokuapp.com/uploads/aass.pdf/12345'
 res = requests.get(url,stream=True)
 fo = open('gagaso.pdf','wb')
-for chunk in res.iter_content(chunk_size=512):
+for chunk in res.iter_content(chunk_size=8*1024):
     if chunk:
         fo.write(chunk)
