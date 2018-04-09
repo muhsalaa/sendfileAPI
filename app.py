@@ -5,7 +5,6 @@ from flask import Flask, jsonify, request,send_from_directory
 #import os
 UPLOAD_FOLDER = '/uploads/'
 app = Flask(__name__,static_folder='uploads')
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 app.run(threaded=True)
 tasks = [
     {
