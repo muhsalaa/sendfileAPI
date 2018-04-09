@@ -32,7 +32,7 @@ def get_task3():
         file = request.files['file']
         if file:
             filename = file.filename
-            file.save('uploads'+filename)    
+            file.save('uploads/'+filename)    
     return jsonify({'message':'send done'})
 
 @app.route('/uploads/<path:filename>/<int:passs>', methods=['GET', 'POST'])
