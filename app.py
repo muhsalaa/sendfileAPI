@@ -1,7 +1,7 @@
 #!flask/bin/python3
 
-from flask import Flask, jsonify, abort, request,send_from_directory
-from itung import lapista
+from flask import Flask, jsonify, request,send_from_directory
+#from itung import lapista
 #import os
 UPLOAD_FOLDER = '/uploads/'
 app = Flask(__name__,static_folder='uploads')
@@ -21,15 +21,10 @@ tasks = [
     }
 ]
 
-
-
-@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
-def get_task(task_id):
-    task = [task for task in tasks if task['id'] == task_id]
-    if len(task) == 0:
-        abort(404)
-    return jsonify({'task': task[0]})
-@app.route('/todo/lone/<int:task_value>', methods=['GET'])
+@app.route('/')
+@app.route('/cihuy/')
+def cihuy():
+    return "Hello World"
 
 @app.route('/todo/lone/', methods=['GET','POST'])
 def get_task3():
